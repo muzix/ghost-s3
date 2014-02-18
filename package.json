@@ -1,0 +1,30 @@
+{
+  "name": "ghost-s3",
+  "version": "0.0.0",
+  "description": "S3 file module for Ghost blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/screenrev/ghost-s3.git"
+  },
+  "keywords": [
+    "ghost",
+    "blog",
+    "aws",
+    "s3",
+    "file"
+  ],
+  "author": "glen@screenrev.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/screenrev/ghost-s3/issues"
+  },
+  "homepage": "https://github.com/screenrev/ghost-s3",
+  "dependencies": {
+    "aws-sdk": "2.0.0-rc9",
+    "bluebird": "1.0.5"
+  }
+}
