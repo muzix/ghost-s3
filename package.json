@@ -25,6 +25,6 @@
   "homepage": "https://github.com/screenrev/ghost-s3",
   "dependencies": {
     "aws-sdk": "2.0.0-rc9",
-    "bluebird": "1.0.5"
+    "when": "2.7.0"
   }
 }

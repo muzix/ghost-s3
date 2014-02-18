@@ -1,10 +1,12 @@
+'use strict';
+
 // # S3 storage module for Ghost blog http://ghost.org/
 var fs = require('fs');
 var path = require('path');
 var nodefn = require('when/node/function');
-var Promise = require('bluebird');
-var readFile = Promise.promisify(fs.readFile);
-var unlink = Promise.promisify(fs.unlink);
+var when = require('when');
+var readFile = nodefn.lift(fs.readFile);
+var unlink = nodefn.lift(fs.unlink);
 var AWS = require('aws-sdk');
 var config;
 
@@ -27,7 +29,7 @@ module.exports = function(options) {
 // - image is the express image object
 // - returns a promise which ultimately returns the full url to the uploaded image
 module.exports.save = function(image) {
-    if (!config) return Promise.reject('ghost-s3 is not configured');
+    if (!config) return when.reject('ghost-s3 is not configured');
 
     var targetDir = getTargetDir();
     var targetFilename = getTargetName(image, targetDir);
@@ -42,19 +44,19 @@ module.exports.save = function(image) {
             Key: targetFilename,
             Body: buffer,
             ContentType: image.type,
-            CacheControl: 'maxage=' + (30 * 24 * 60 * 60)
+            CacheControl: 'maxage=' + (30 * 24 * 60 * 60) // 30 days
         });
     })
-    .then(function() {
+    .then(function(result) {
         return unlink(image.path);
     })
     .then(function() {
-        return awsPath + targetFilename;
+        return when.resolve(awsPath + targetFilename);
     })
     .catch(function(err) {
         unlink(image.path);
         errors.logError(err);
-        return saved.reject(err);
+        throw err;
     });
 };
 
