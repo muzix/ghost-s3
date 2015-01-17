@@ -37,24 +37,32 @@ module.exports.save = function(image) {
 
     return readFile(image.path)
     .then(function(buffer) {
-        var s3 = new AWS.S3();
+        var s3 = new AWS.S3({
+          accessKeyId: config.accessKeyId,
+          secretAccessKey: config.secretAccessKey,
+          bucket: config.bucket,
+          region: config.region
+        });
 
         return nodefn.call(s3.putObject.bind(s3), {
             Bucket: config.bucket,
             Key: targetFilename,
             Body: buffer,
             ContentType: image.type,
-            CacheControl: 'maxage=' + (30 * 24 * 60 * 60) // 30 days
+            CacheControl: 'max-age=' + (30 * 24 * 60 * 60) // 30 days
         });
     })
     .then(function(result) {
-        return unlink(image.path);
+        errors.logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
     })
     .then(function() {
         return when.resolve(awsPath + targetFilename);
     })
     .catch(function(err) {
-        unlink(image.path);
+        // fs.unlink(image.path, function (err) {
+        //     if (err) throw err;
+        //     errors.logInfo('ghost-s3', 'Successfully deleted temp file uploaded');
+        // });
         errors.logError(err);
         throw err;
     });
@@ -64,7 +72,9 @@ module.exports.save = function(image) {
 // middleware for serving the files
 module.exports.serve = function() {
     // a no-op, these are absolute URLs
-    return function(){};
+    return function (req, res, next) {
+      next();
+    };
 };
 
 

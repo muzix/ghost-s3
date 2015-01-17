@@ -1,30 +1,32 @@
 {
-  "name": "ghost-s3",
-  "version": "0.0.0",
-  "description": "S3 file module for Ghost blog",
+  "name": "ghost-s3-storage",
+  "version": "0.1.0",
+  "description": "Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/screenrev/ghost-s3.git"
+    "url": "https://github.com/muzix/ghost-s3.git"
   },
   "keywords": [
     "ghost",
-    "blog",
     "aws",
+    "amazon",
     "s3",
-    "file"
+    "storage",
+    "plugin",
+    "blog"
   ],
-  "author": "glen@screenrev.com",
+  "author": "Hoang Pham Huu <phamhuuhoang@gmail.com> (http://thucdon24.com/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/screenrev/ghost-s3/issues"
+    "url": "https://github.com/muzix/ghost-s3/issues"
   },
-  "homepage": "https://github.com/screenrev/ghost-s3",
+  "homepage": "https://github.com/muzix/ghost-s3",
   "dependencies": {
-    "aws-sdk": "2.0.0-rc9",
-    "when": "2.7.0"
+    "aws-sdk": "^2.1.6",
+    "when": "^3.6.4"
   }
 }
