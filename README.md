@@ -1,6 +1,6 @@
 # Ghost S3 Storage
 
-This module allows you to storing media file at Amazon S3 instead of storing at local machine, especial helpful for ghost blog hosted at heroku (no local storage). Known to work at lastest version 0.5.8 of Ghost
+This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Known to work at lastest version 0.5.8 of Ghost
 
 ## Installation
 
@@ -8,7 +8,7 @@ This module allows you to storing media file at Amazon S3 instead of storing at 
 
 ## Configuration
 
-Create new Amazon S3 bucket and new IAM User with permission to allow put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.
+Create new Amazon S3 bucket and new IAM User with permissions allowed to put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.
 
 Add `aws` block to file `config.js` as below:
 
