@@ -16,7 +16,7 @@ Add `aws` block to file `config.js` as below:
         accessKeyId: Put_your_access_key_here,
         secretAccessKey: Put_your_secret_key_here,
         bucket: Put_your_bucket_name,
-        region: Put_your_bucket_region,
+        region: Put_your_bucket_region
     }
 
 Edit `core/server/storage/index.js` file look like below:
