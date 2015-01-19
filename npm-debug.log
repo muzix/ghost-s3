@@ -1,0 +1,132 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/hoangph/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+12 verbose folder .
+13 info prepublish ghost-s3-storage@0.1.0
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/hoangph/.npm/1f1177db-tar.lock
+16 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+17 verbose lock tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz /Users/hoangph/.npm/3767671a-30382-0-5853642937727273-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+21 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+22 verbose tar unpack /var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+23 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+24 verbose lock tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package /Users/hoangph/.npm/8151dad2-30382-0-5853642937727273-package.lock
+25 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+26 verbose lock tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz /Users/hoangph/.npm/3767671a-30382-0-5853642937727273-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry .npmignore
+30 silly gunzTarPerm extractEntry README.md
+31 silly gunzTarPerm extractEntry index.js
+32 silly gunzTarPerm extractEntry .jshintrc
+33 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+34 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+35 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+36 silly lockFile 3767671a-30382-0-5853642937727273-tmp-tgz tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/tmp.tgz
+37 verbose tar pack [ '/Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz',
+37 verbose tar pack   '/var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package' ]
+38 verbose tarball /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+39 verbose folder /var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+40 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+41 verbose lock tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package /Users/hoangph/.npm/8151dad2-30382-0-5853642937727273-package.lock
+42 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+43 verbose lock tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz /Users/hoangph/.npm/a20d5b30-ost-s3-storage-0-1-0-package-tgz.lock
+44 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+45 silly lockFile 8151dad2-30382-0-5853642937727273-package tar:///var/folders/lg/5rllzv3s3cq7q6g38jh36g7c0000gn/T/npm-926-hiXlc7G0/1421636730382-0.5853642937727273/package
+46 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+47 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+48 silly lockFile ffad90d4-m-ghost-s3-storage-0-1-0-package /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+49 verbose lock /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package /Users/hoangph/.npm/ffad90d4-m-ghost-s3-storage-0-1-0-package.lock
+50 silly lockFile ffad90d4-m-ghost-s3-storage-0-1-0-package /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+51 silly lockFile ffad90d4-m-ghost-s3-storage-0-1-0-package /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+52 verbose tar unpack /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+53 silly lockFile fde017e7-m-ghost-s3-storage-0-1-0-package tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+54 verbose lock tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package /Users/hoangph/.npm/fde017e7-m-ghost-s3-storage-0-1-0-package.lock
+55 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+56 verbose lock tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz /Users/hoangph/.npm/a20d5b30-ost-s3-storage-0-1-0-package-tgz.lock
+57 silly gunzTarPerm modes [ '755', '644' ]
+58 silly gunzTarPerm extractEntry package.json
+59 silly gunzTarPerm extractEntry .npmignore
+60 silly gunzTarPerm extractEntry README.md
+61 silly gunzTarPerm extractEntry index.js
+62 silly gunzTarPerm extractEntry .jshintrc
+63 silly lockFile fde017e7-m-ghost-s3-storage-0-1-0-package tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+64 silly lockFile fde017e7-m-ghost-s3-storage-0-1-0-package tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package
+65 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+66 silly lockFile a20d5b30-ost-s3-storage-0-1-0-package-tgz tar:///Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz
+67 verbose chmod /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz 644
+68 verbose chown /Users/hoangph/.npm/ghost-s3-storage/0.1.0/package.tgz [ 501, 20 ]
+69 silly lockFile 3a52ce78- .
+70 silly lockFile 3a52ce78- .
+71 silly publish { name: 'ghost-s3-storage',
+71 silly publish   version: '0.1.0',
+71 silly publish   description: 'Store Ghost\'s media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ',
+71 silly publish   main: 'index.js',
+71 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+71 silly publish   repository: { type: 'git', url: 'https://github.com/muzix/ghost-s3.git' },
+71 silly publish   keywords: [ 'ghost', 'aws', 'amazon', 's3', 'storage', 'plugin', 'blog' ],
+71 silly publish   author:
+71 silly publish    { name: 'Hoang Pham Huu',
+71 silly publish      email: 'phamhuuhoang@gmail.com',
+71 silly publish      url: 'http://thucdon24.com/' },
+71 silly publish   license: 'MIT',
+71 silly publish   bugs: { url: 'https://github.com/muzix/ghost-s3/issues' },
+71 silly publish   homepage: 'https://github.com/muzix/ghost-s3',
+71 silly publish   dependencies: { 'aws-sdk': '^2.1.6', when: '^3.6.4' },
+71 silly publish   readme: '# Ghost S3 Storage\n\nThis module allows you to storing media file at Amazon S3 instead of storing at local machine, especial helpful for ghost blog hosted at heroku (no local storage). Known to work at lastest version 0.5.8 of Ghost\n\n## Installation\n\n    npm install --save ghost-s3-storage\n\n## Configuration\n\nCreate new Amazon S3 bucket and new IAM User with permission to allow put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.\n\nAdd `aws` block to file `config.js` as below:\n\n    aws: {\n        accessKeyId: Put_your_access_key_here,\n        secretAccessKey: Put_your_secret_key_here,\n        bucket: Put_your_bucket_name,\n        region: Put_your_bucket_region,\n    }\n\nEdit `core/server/storage/index.js` file look like below:\n\n    var errors  = require(\'../errors\'),\n    storage = {},\n    config;\n\n    function getConfigModule() {\n        if (!config) {\n            config = require(\'../config\');\n        }\n        return config;\n    }\n\n\n    function getStorage(storageChoice) {\n        // TODO: this is where the check for storage apps should go\n        // Local file system is the default.  Fow now that is all we support.\n        // storageChoice = \'local-file-store\';\n        storageChoice = \'ghost-s3-storage\';\n\n        if (storage[storageChoice]) {\n            return storage[storageChoice];\n        }\n\n        try {\n            // TODO: determine if storage has all the necessary methods.\n            //storage[storageChoice] = require(\'./\' + storageChoice);\n            storage[storageChoice] = require(storageChoice)({\n                errors: errors,\n                config: getConfigModule().aws\n            });\n        } catch (e) {\n            errors.logError(e);\n        }\n\n        // Instantiate and cache the storage module instance.\n        storage[storageChoice] = new storage[storageChoice]();\n\n        return storage[storageChoice];\n    }\n\n    module.exports.getStorage = getStorage;\n\nRestart app then test upload new image in blog post. Image will be store at newly S3 bucket.\n\n## License\n\nRead LICENSE\n',
+71 silly publish   readmeFilename: 'README.md',
+71 silly publish   _id: 'ghost-s3-storage@0.1.0',
+71 silly publish   dist: { shasum: '5c13cf647186f56ba9af0426cecfd34decceae59' },
+71 silly publish   _from: '.' }
+72 verbose url raw ghost-s3-storage
+73 verbose url resolving [ 'https://registry.npmjs.org/', './ghost-s3-storage' ]
+74 verbose url resolved https://registry.npmjs.org/ghost-s3-storage
+75 info trying registry request attempt 1 at 10:05:30
+76 http PUT https://registry.npmjs.org/ghost-s3-storage
+77 http 403 https://registry.npmjs.org/ghost-s3-storage
+78 error publish Failed PUT 403
+79 error Error: forbidden cannot modify pre-existing version: 0.1.0
+79 error old={"name":"ghost-s3-storage","version":"0.1.0","description":"Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"https://github.com/muzix/ghost-s3.git"},"keywords":["ghost","aws","amazon","s3","storage","plugin","blog"],"author":{"name":"Hoang Pham Huu","email":"phamhuuhoang@gmail.com","url":"http://thucdon24.com/"},"license":"ISC","bugs":{"url":"https://github.com/muzix/ghost-s3/issues"},"homepage":"https://github.com/muzix/ghost-s3","dependencies":{"aws-sdk":"^2.1.6","when":"^3.6.4"},"gitHead":"d39274110fbd779fe98dae4e271310093a5743f7","_id":"ghost-s3-storage@0.1.0","_shasum":"513ad4ce170ded980db83e98c48f5d10f1df721f","_from":".","_npmVersion":"1.4.28","_npmUser":{"name":"muzix","email":"phamhuuhoang@gmail.com"},"maintainers":[{"name":"muzix","email":"phamhuuhoang@gmail.com"}],"dist":{"shasum":"513ad4ce170ded980db83e98c48f5d10f1df721f","tarball":"http://registry.npmjs.org/ghost-s3-storage/-/ghost-s3-storage-0.1.0.tgz"}}
+79 error new={"name":"ghost-s3-storage","version":"0.1.0","description":"Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"https://github.com/muzix/ghost-s3.git"},"keywords":["ghost","aws","amazon","s3","storage","plugin","blog"],"author":{"name":"Hoang Pham Huu","email":"phamhuuhoang@gmail.com","url":"http://thucdon24.com/"},"license":"MIT","bugs":{"url":"https://github.com/muzix/ghost-s3/issues"},"homepage":"https://github.com/muzix/ghost-s3","dependencies":{"aws-sdk":"^2.1.6","when":"^3.6.4"},"readme":"# Ghost S3 Storage\u000a\u000aThis module allows you to storing media file at Amazon S3 instead of storing at local machine, especial helpful for ghost blog hosted at heroku (no local storage). Known to work at lastest version 0.5.8 of Ghost\u000a\u000a## Installation\u000a\u000a    npm install --save ghost-s3-storage\u000a\u000a## Configuration\u000a\u000aCreate new Amazon S3 bucket and new IAM User with permission to allow put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.\u000a\u000aAdd `aws` block to file `config.js` as below:\u000a\u000a    aws: {\u000a        accessKeyId: Put_your_access_key_here,\u000a        secretAccessKey: Put_your_secret_key_here,\u000a        bucket: Put_your_bucket_name,\u000a        region: Put_your_bucket_region,\u000a    }\u000a\u000aEdit `core/server/storage/index.js` file look like below:\u000a\u000a    var errors  = require('../errors'),\u000a    storage = {},\u000a    config;\u000a\u000a    function getConfigModule() {\u000a        if (!config) {\u000a            config = require('../config');\u000a        }\u000a        return config;\u000a    }\u000a\u000a\u000a    function getStorage(storageChoice) {\u000a        // TODO: this is where the check for storage apps should go\u000a        // Local file system is the default.  Fow now that is all we support.\u000a        // storageChoice = 'local-file-store';\u000a        storageChoice = 'ghost-s3-storage';\u000a\u000a        if (storage[storageChoice]) {\u000a            return storage[storageChoice];\u000a        }\u000a\u000a        try {\u000a            // TODO: determine if storage has all the necessary methods.\u000a            //storage[storageChoice] = require('./' + storageChoice);\u000a            storage[storageChoice] = require(storageChoice)({\u000a                errors: errors,\u000a                config: getConfigModule().aws\u000a            });\u000a        } catch (e) {\u000a            errors.logError(e);\u000a        }\u000a\u000a        // Instantiate and cache the storage module instance.\u000a        storage[storageChoice] = new storage[storageChoice]();\u000a\u000a        return storage[storageChoice];\u000a    }\u000a\u000a    module.exports.getStorage = getStorage;\u000a\u000aRestart app then test upload new image in blog post. Image will be store at newly S3 bucket.\u000a\u000a## License\u000a\u000aRead LICENSE\u000a","readmeFilename":"README.md","_id":"ghost-s3-storage@0.1.0","dist":{"shasum":"5c13cf647186f56ba9af0426cecfd34decceae59","tarball":"http://registry.npmjs.org/ghost-s3-storage/-/ghost-s3-storage-0.1.0.tgz"},"_from":".","_npmVersion":"1.4.3","_npmUser":{"name":"muzix","email":"phamhuuhoang@gmail.com"},"maintainers":[{"name":"muzix","email":"phamhuuhoang@gmail.com"}]}: ghost-s3-storage
+79 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:14)
+79 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+79 error     at Request.EventEmitter.emit (events.js:98:17)
+79 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+79 error     at Request.EventEmitter.emit (events.js:117:20)
+79 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+79 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+79 error     at _stream_readable.js:920:16
+79 error     at process._tickCallback (node.js:415:13)
+80 error If you need help, you may report this *entire* log,
+80 error including the npm and node versions, at:
+80 error     <http://github.com/npm/npm/issues>
+81 error System Darwin 13.3.0
+82 error command "node" "/usr/local/bin/npm" "publish"
+83 error cwd /Users/hoangph/Projects/Labs/blogthucdon24/plugins/ghost-s3-storage
+84 error node -v v0.10.26
+85 error npm -v 1.4.3
+86 verbose exit [ 1, true ]

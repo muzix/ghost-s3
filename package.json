@@ -1,6 +1,6 @@
 {
   "name": "ghost-s3-storage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ",
   "main": "index.js",
   "scripts": {
