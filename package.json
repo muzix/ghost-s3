@@ -20,7 +20,7 @@
     "blog"
   ],
   "author": "Hoang Pham Huu <phamhuuhoang@gmail.com> (http://thucdon24.com/)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/muzix/ghost-s3/issues"
   },
