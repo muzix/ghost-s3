@@ -20,7 +20,7 @@ Add `aws` block to file `config.js` as below:
     }
     
     
-**Note** If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name.
+**Note** If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name. Bucket Regions can be found [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
     
 Edit `core/server/storage/index.js` file look like below:
 
