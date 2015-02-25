@@ -15,13 +15,20 @@ Add `aws` block to file `config.js` as below:
     aws: {
         accessKeyId: Put_your_access_key_here,
         secretAccessKey: Put_your_secret_key_here,
-        bucket: Put_your_bucket_name,
+        bucket: Put_your_bucket_name*,
         region: Put_your_bucket_region*
+        assetHost: Put_your_cdn_url*
     }
-    
-    
-**Note** If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name. Bucket Regions can be found [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-    
+
+**Note 1**
+If full url of amazon s3 is "https://foobucket.s3.amazonaws.com" then bucket config is: 'foobucket.s3' (include string quote)
+
+**Note 2**
+If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name. Bucket Regions can be found [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+
+**Note 3**
+assetHost config will bypass bucket name config. You can put full url of your amazon s3 bucket or put your cdn host url here.
+
 Edit `core/server/storage/index.js` file look like below:
 
     var errors  = require('../errors'),
