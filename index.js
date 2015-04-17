@@ -8,44 +8,31 @@ var when = require('when');
 var readFile = nodefn.lift(fs.readFile);
 var unlink = nodefn.lift(fs.unlink);
 var AWS = require('aws-sdk');
-var config;
+var options = {};
 
+function S3Store(config) {
+  options = config || {};
+}
 
-module.exports = function(options) {
-    options = options || {};
+S3Store.prototype.save = function(image) {
+    var self = this;
+    if (!options) return when.reject('ghost-s3 is not configured');
 
-    if (options.config) {
-        config = options.config;
-        AWS.config.update(config);
-    }
-    if (options.errors) errors = options.errors;
-
-    return module.exports;
-};
-
-
-// ### Save
-// Saves the image to S3
-// - image is the express image object
-// - returns a promise which ultimately returns the full url to the uploaded image
-module.exports.save = function(image) {
-    if (!config) return when.reject('ghost-s3 is not configured');
-
-    var targetDir = getTargetDir();
-    var targetFilename = getTargetName(image, targetDir);
-    var awsPath = config.assetHost ? config.assetHost : 'https://' + config.bucket + '.amazonaws.com/';
+    var targetDir = self.getTargetDir();
+    var targetFilename = self.getTargetName(image, targetDir);
+    var awsPath = options.assetHost ? options.assetHost : 'https://' + options.bucket + '.amazonaws.com/';
 
     return readFile(image.path)
     .then(function(buffer) {
         var s3 = new AWS.S3({
-          accessKeyId: config.accessKeyId,
-          secretAccessKey: config.secretAccessKey,
-          bucket: config.bucket,
-          region: config.region
+          accessKeyId: options.accessKeyId,
+          secretAccessKey: options.secretAccessKey,
+          bucket: options.bucket,
+          region: options.region
         });
 
         return nodefn.call(s3.putObject.bind(s3), {
-            Bucket: config.bucket,
+            Bucket: options.bucket,
             Key: targetFilename,
             Body: buffer,
             ContentType: image.type,
@@ -53,7 +40,7 @@ module.exports.save = function(image) {
         });
     })
     .then(function(result) {
-        errors.logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
+        self.logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
     })
     .then(function() {
         return when.resolve(awsPath + targetFilename);
@@ -63,42 +50,41 @@ module.exports.save = function(image) {
         //     if (err) throw err;
         //     errors.logInfo('ghost-s3', 'Successfully deleted temp file uploaded');
         // });
-        errors.logError(err);
+        self.logError(err);
         throw err;
     });
 };
 
-
 // middleware for serving the files
-module.exports.serve = function() {
+S3Store.prototype.serve = function() {
     // a no-op, these are absolute URLs
     return function (req, res, next) {
       next();
     };
 };
 
-
-var MONTHS = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-];
-var getTargetDir = function() {
+S3Store.prototype.getTargetDir = function() {
+    var MONTHS = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
     var now = new Date();
     return path.join(now.getFullYear() + '', MONTHS[now.getMonth()]) + '/';
 };
 
-
-var getTargetName = function(image, targetDir) {
+S3Store.prototype.getTargetName = function(image, targetDir) {
     var ext = path.extname(image.name),
         name = path.basename(image.name, ext).replace(/\W/g, '_');
 
     return targetDir + name + '-' + Date.now() + ext;
 };
 
+S3Store.prototype.logError = function(error) {
+    console.log('error in ghost-s3', error);
+}
 
-// default error handler
-var errors = {
-    logError: function(error) {
-        console.log('error in ghost-s3', error);
-    }
-};
+S3Store.prototype.logInfo = function(info) {
+    console.log('info in ghost-s3', info);
+}
+
+module.exports = S3Store;
