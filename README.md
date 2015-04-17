@@ -11,7 +11,7 @@ This module allows you to store media file at Amazon S3 instead of storing at lo
 
 ## Create storage module
 
-- Create index.js file with folder path 'content/storage/ghost-s3/index.js' (manually create folder if not exist)
+Create index.js file with folder path 'content/storage/ghost-s3/index.js' (manually create folder if not exist)
 
     'use strict';
     module.exports = require('ghost-s3-storage');
