@@ -4,7 +4,7 @@
   "description": "Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ",
   "main": "index.js",
   "scripts": {
-    "install": "mkdir -p content/storage && mkdir -p content/storage/ghost-s3 && cp node_modules/ghost-s3-storage/index.js content/storage/ghost-s3/"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
