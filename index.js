@@ -69,7 +69,7 @@ S3Store.prototype.getTargetDir = function() {
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
     var now = new Date();
-    return path.join(now.getFullYear() + '', MONTHS[now.getMonth()]) + '/';
+    return now.getFullYear() + '/' + MONTHS[now.getMonth()] + '/';
 };
 
 S3Store.prototype.getTargetName = function(image, targetDir) {
