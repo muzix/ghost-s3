@@ -27,20 +27,19 @@ Add `storage` block to file `config.js` in each environment as below:
         'ghost-s3': {
             accessKeyId: Put_your_access_key_here,
             secretAccessKey: Put_your_secret_key_here,
-            bucket: Put_your_bucket_name*,
+            bucket: Put_your_bucket_name,
             region: Put_your_bucket_region*
             assetHost: Put_your_cdn_url*
         }
     }
 
 **Note 1**
-If full url of amazon s3 is "https://foobucket.s3.amazonaws.com" then bucket config is: 'foobucket.s3' (include string quote)
+You can use assetHost config to specify S3 bucket full-url in virtual host style or path style (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
 
-**Note 2**
-If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name. Bucket Regions can be found [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
+- Virtual-host style example: ['https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg)
 
-**Note 3**
-assetHost config will bypass bucket name config. You can put full url of your amazon s3 bucket or put your cdn host url here.
+- Path style example: ['https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg)
+
 
 Restart app then test upload new image in blog post. Image will be store at newly S3 bucket.
 
