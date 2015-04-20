@@ -1,5 +1,5 @@
 #UPDATE
-Update version 0.2.0 for Ghost 0.6.0
+Update version 0.2.1 for Ghost 0.6.0
 
 # Ghost S3 Storage
 
@@ -28,18 +28,17 @@ Add `storage` block to file `config.js` in each environment as below:
             accessKeyId: Put_your_access_key_here,
             secretAccessKey: Put_your_secret_key_here,
             bucket: Put_your_bucket_name,
-            region: Put_your_bucket_region*
+            region: Put_your_bucket_region
             assetHost: Put_your_cdn_url*
         }
     }
 
 **Note 1**
-You can use assetHost config to specify S3 bucket full-url in virtual host style or path style (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
+You can use assetHost config to specify S3 bucket full-url in virtual host style, path style or custom domain (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
 
 - Virtual-host style example: ['https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg)
 
 - Path style example: ['https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg)
-
 
 Restart app then test upload new image in blog post. Image will be store at newly S3 bucket.
 
