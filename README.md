@@ -3,7 +3,7 @@ Update version 0.2.1 for Ghost 0.6.0
 
 # Ghost S3 Storage
 
-This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.6.0 of Ghost! (Use module version 0.1.6 for Ghost version < 0.6.0)
+This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.6.0 of Ghost! (Use module version 0.1.7 for Ghost version < 0.6.0)
 
 ## Installation
 
