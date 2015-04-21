@@ -1,10 +1,10 @@
 # Ghost S3 Storage
 
-This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Will work with latest version 0.5.8 of Ghost!
+This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Will work with version 0.5.8 of Ghost!
 
 ## Installation
 
-    npm install --save ghost-s3-storage
+    npm install --save ghost-s3-storage@0.1.6
 
 ## Configuration
 
@@ -16,12 +16,18 @@ Add `aws` block to file `config.js` as below:
         accessKeyId: Put_your_access_key_here,
         secretAccessKey: Put_your_secret_key_here,
         bucket: Put_your_bucket_name,
-        region: Put_your_bucket_region*
+        region: Put_your_bucket_region,
+        assetHost: Put_your_s3_full_url (*optional)
     }
-    
-    
-**Note** If using US Standard for your amazon bucket region use the `s3-external-1` or `us-east-1.s3` for your buckets region name. Bucket Regions can be found [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
-    
+
+
+**Note**
+You can use assetHost config to specify S3 bucket full-url in virtual host style, path style or custom domain (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
+
+- Virtual-host style example: ['https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg)
+
+- Path style example: ['https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg)
+
 Edit `core/server/storage/index.js` file look like below:
 
     var errors  = require('../errors'),
