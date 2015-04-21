@@ -4,7 +4,7 @@ This module allows you to store media file at Amazon S3 instead of storing at lo
 
 ## Installation
 
-    npm install --save ghost-s3-storage@0.1.6
+    npm install --save ghost-s3-storage@0.1.7
 
 ## Configuration
 
