@@ -25,13 +25,13 @@ Add `storage` block to file `config.js` in each environment as below:
     storage: {
         active: 'ghost-s3',
         'ghost-s3': {
-            accessKeyId: Put_your_access_key_here,
-            secretAccessKey: Put_your_secret_key_here,
-            bucket: Put_your_bucket_name,
-            region: Put_your_bucket_region
-            assetHost: Put_your_cdn_url*
+            accessKeyId: 'Put_your_access_key_here',
+            secretAccessKey: 'Put_your_secret_key_here',
+            bucket: 'Put_your_bucket_name',
+            region: 'Put_your_bucket_region',
+            assetHost: 'Put_your_cdn_url*'
         }
-    }
+    },
 
 **Note 1**
 You can use assetHost config to specify S3 bucket full-url in virtual host style, path style or custom domain (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
