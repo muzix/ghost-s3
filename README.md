@@ -42,6 +42,9 @@ You can use assetHost config to specify S3 bucket full-url in virtual host style
 
 Restart app then test upload new image in blog post. Image will be store at newly S3 bucket.
 
-## License
+## Copyright & License
 
-Read LICENSE
+Copyright (c) 2015  Hoang Pham Huu <phamhuuhoang@gmail.com>
+
+Released under the [MIT license](https://github.com/muzix/ghost-s3/blob/master/LICENSE).
+
