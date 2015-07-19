@@ -81,10 +81,10 @@ S3Store.prototype.getTargetName = function(image, targetDir) {
 
 S3Store.prototype.logError = function(error) {
     console.log('error in ghost-s3', error);
-}
+};
 
 S3Store.prototype.logInfo = function(info) {
     console.log('info in ghost-s3', info);
-}
+};
 
 module.exports = S3Store;
