@@ -61,6 +61,8 @@ This will save files in `pathPrefix/year/month/...`, so you can neatly store gho
 files and either share the S3 bucket with other apps or use CloudFront prefix rules
 as you see fit.
 
-## License
+## Copyright & License
 
-Read LICENSE
+Copyright (c) 2015  Hoang Pham Huu <phamhuuhoang@gmail.com>
+
+Released under the [MIT license](https://github.com/muzix/ghost-s3/blob/master/LICENSE).
