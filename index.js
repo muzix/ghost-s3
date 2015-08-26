@@ -32,6 +32,7 @@ S3Store.prototype.save = function(image) {
         });
 
         return nodefn.call(s3.putObject.bind(s3), {
+            ACL: 'public-read',
             Bucket: options.bucket,
             Key: targetFilename,
             Body: buffer,
