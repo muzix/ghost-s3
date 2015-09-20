@@ -1,5 +1,5 @@
 #UPDATE
-Update version 0.2.1 for Ghost 0.6.0
+Update version 0.2.2 for Ghost 0.6.0
 
 # Ghost S3 Storage
 
