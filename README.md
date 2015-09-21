@@ -29,7 +29,8 @@ Add `storage` block to file `config.js` in each environment as below:
             secretAccessKey: 'Put_your_secret_key_here',
             bucket: 'Put_your_bucket_name',
             region: 'Put_your_bucket_region',
-            assetHost: 'Put_your_cdn_url*'
+            assetHost: 'Put_your_cdn_url*',
+            proxyUrl: 'Put_your_proxy_url'
         }
     },
 

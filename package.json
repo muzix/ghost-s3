@@ -27,6 +27,7 @@
   "homepage": "https://github.com/muzix/ghost-s3",
   "dependencies": {
     "aws-sdk": "^2.1.6",
-    "when": "^3.6.4"
+    "when": "^3.6.4",
+    "proxy-agent": "2.0.0"
   }
 }

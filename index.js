@@ -8,6 +8,7 @@ var when = require('when');
 var readFile = nodefn.lift(fs.readFile);
 var unlink = nodefn.lift(fs.unlink);
 var AWS = require('aws-sdk');
+var proxy = require('proxy-agent');
 var options = {};
 
 function S3Store(config) {
@@ -24,6 +25,11 @@ S3Store.prototype.save = function(image) {
 
     return readFile(image.path)
     .then(function(buffer) {
+        if (options.proxyUrl) {
+          AWS.config.update({
+            httpOptions: { agent: proxy(options.proxyUrl) }
+          });
+        }
         var s3 = new AWS.S3({
           accessKeyId: options.accessKeyId,
           secretAccessKey: options.secretAccessKey,
