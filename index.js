@@ -18,7 +18,7 @@ S3Store.prototype.save = function(image) {
     var self = this;
     if (!options) return when.reject('ghost-s3 is not configured');
 
-    var targetDir = self.getTargetDir();
+    var targetDir = self.getTargetDir(options);
     var targetFilename = self.getTargetName(image, targetDir);
     var awsPath = options.assetHost ? options.assetHost : 'https://' + options.bucket + '.s3.amazonaws.com/';
 
@@ -64,13 +64,21 @@ S3Store.prototype.serve = function() {
     };
 };
 
-S3Store.prototype.getTargetDir = function() {
+S3Store.prototype.getTargetDir = function(options) {
     var MONTHS = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
     var now = new Date();
-    return now.getFullYear() + '/' + MONTHS[now.getMonth()] + '/';
+    var prefix = options.pathPrefix ? options.pathPrefix : '';
+
+    // append a '/' to prefix if necessary
+    var pos = prefix.length - 1;
+    if (prefix.length && prefix.indexOf('/', pos) != pos) {
+        prefix = prefix + '/';
+    }
+
+    return prefix + now.getFullYear() + '/' + MONTHS[now.getMonth()] + '/';
 };
 
 S3Store.prototype.getTargetName = function(image, targetDir) {

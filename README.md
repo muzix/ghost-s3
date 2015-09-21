@@ -42,9 +42,27 @@ You can use assetHost config to specify S3 bucket full-url in virtual host style
 
 Restart app then test upload new image in blog post. Image will be store at newly S3 bucket.
 
+**Note 2**
+Uploads will be saved in the specified S3 bucket using keys (paths) in the form of
+`/year/month/imageName-timeStamp.ext`, where:
+
+* year      - 4 digits of the current year;
+* month     - 3 letter english abbreviation of the current month;
+* imageName - the original file name, with special characters converted to "_";
+* timeStamp - timestamp in milliseconds;
+* ext       - the original file's extension (e.g. "png");
+
+If, for whatever reason, you need to prefix that path with something, you can use
+the `pathPrefix` config option, like so:
+
+    pathPrefix: "some/path"
+
+This will save files in `pathPrefix/year/month/...`, so you can neatly store ghost
+files and either share the S3 bucket with other apps or use CloudFront prefix rules
+as you see fit.
+
 ## Copyright & License
 
 Copyright (c) 2015  Hoang Pham Huu <phamhuuhoang@gmail.com>
 
 Released under the [MIT license](https://github.com/muzix/ghost-s3/blob/master/LICENSE).
-
