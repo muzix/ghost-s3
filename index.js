@@ -20,7 +20,7 @@ S3Store.prototype.save = function(image) {
 
     var targetDir = self.getTargetDir();
     var targetFilename = self.getTargetName(image, targetDir);
-    var awsPath = options.assetHost ? options.assetHost : 'https://' + options.bucket + '.s3.amazonaws.com/';
+    var awsPath = options.assetHost ? options.assetHost : 'https://s3-' + options.region + '.amazonaws.com/' + options.bucket + '/';
 
     return readFile(image.path)
     .then(function(buffer) {
