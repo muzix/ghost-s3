@@ -19,7 +19,8 @@ S3Store.prototype.save = function(image) {
     if (!options) return when.reject('ghost-s3 is not configured');
 
     var targetDir = self.getTargetDir();
-    var targetFilename = self.getTargetName(image, targetDir);
+    var prefix = options.prefix ? options.prefix : '';
+    var targetFilename = prefix + self.getTargetName(image, targetDir);
     var awsPath = options.assetHost ? options.assetHost : 'https://' + options.bucket + '.s3.amazonaws.com/';
 
     return readFile(image.path)
