@@ -1,13 +1,14 @@
 #UPDATE
-Update version 0.2.2 for Ghost 0.6.0
+Update version 0.2.2 for Ghost 0.6.0 or later
 
 # Ghost S3 Storage
 
-This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.6.0 of Ghost! (Use module version 0.1.7 for Ghost version < 0.6.0)
+This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version Ghost (0.6.0 or later)! (Use module version 0.1.7 for Ghost version < 0.6.0)
 
 ## Installation
 
     npm install --save ghost-s3-storage
+    npm shrinkwrap
 
 ## Create storage module
 
@@ -47,4 +48,3 @@ Restart app then test upload new image in blog post. Image will be store at newl
 Copyright (c) 2015  Hoang Pham Huu <phamhuuhoang@gmail.com>
 
 Released under the [MIT license](https://github.com/muzix/ghost-s3/blob/master/LICENSE).
-
