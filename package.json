@@ -28,6 +28,7 @@
   "dependencies": {
     "aws-sdk": "^2.1.6",
     "aws-sdk-promise": "^0.0.2",
-    "bluebird": "^2.10.2"
+    "bluebird": "^2.10.2",
+    "moment": "2.12.0"
   }
 }
