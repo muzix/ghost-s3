@@ -10,7 +10,7 @@ var readFileAsync = Bluebird.promisify(fs.readFile);
 var options = {};
 
 function S3Store(config) {
-    options = config || {};
+    options = config;
 }
 
 function getAwsPath(bucket) {
@@ -38,8 +38,17 @@ function getTargetName(image, targetDir) {
     return targetDir + name + '-' + Date.now() + ext;
 };
 
+function validOptions(opts) {
+    return (opts.accessKeyId && \
+        opts.secretAccessKey && \
+        opts.bucket && \
+        opts.region);
+}
+
 S3Store.prototype.save = function(image) {
-    if (!options) return Bluebird.reject('ghost-s3 is not configured');
+    if (!validOptions(options)) {
+      return Bluebird.reject('ghost-s3 is not configured');
+    }
 
     var targetDir = getTargetDir();
     var targetFilename = getTargetName(image, targetDir);
@@ -59,7 +68,7 @@ S3Store.prototype.save = function(image) {
                 Key: targetFilename,
                 Body: buffer,
                 ContentType: image.type,
-                CacheControl: 'max-age=' + (365 * 24 * 60 * 60) // 365 days
+                CacheControl: 'max-age=' + (1000 * 365 * 24 * 60 * 60) // 365 days
             };
 
             return s3.putObject(params).promise();
