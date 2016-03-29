@@ -26,12 +26,23 @@ function logInfo(info) {
     console.log('info in ghost-s3', info);
 };
 
+function getTargetDir() {
+    var now = moment();
+    return now.format('YYYY/MM/');
+};
+
+function getTargetName(image, targetDir) {
+    var ext = path.extname(image.name);
+    var name = path.basename(image.name, ext).replace(/\W/g, '_');
+
+    return targetDir + name + '-' + Date.now() + ext;
+};
+
 S3Store.prototype.save = function(image) {
-    var self = this;
     if (!options) return Bluebird.reject('ghost-s3 is not configured');
 
-    var targetDir = self.getTargetDir();
-    var targetFilename = self.getTargetName(image, targetDir);
+    var targetDir = getTargetDir();
+    var targetFilename = getTargetName(image, targetDir);
 
     var s3 = new AWS.S3({
         accessKeyId: options.accessKeyId,
@@ -93,19 +104,5 @@ S3Store.prototype.serve = function() {
             .pipe(res);
     };
 };
-
-S3Store.prototype.getTargetDir = function() {
-    var now = moment();
-    return now.format('YYYY/MM/');
-};
-
-S3Store.prototype.getTargetName = function(image, targetDir) {
-    var ext = path.extname(image.name);
-    var name = path.basename(image.name, ext).replace(/\W/g, '_');
-
-    return targetDir + name + '-' + Date.now() + ext;
-};
-
-
 
 module.exports = S3Store;
