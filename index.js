@@ -39,9 +39,9 @@ function getTargetName(image, targetDir) {
 };
 
 function validOptions(opts) {
-    return (opts.accessKeyId && \
-        opts.secretAccessKey && \
-        opts.bucket && \
+    return (opts.accessKeyId &&
+        opts.secretAccessKey &&
+        opts.bucket &&
         opts.region);
 }
 
