@@ -18,6 +18,14 @@ function getAwsPath(bucket) {
     return awsPath;
 }
 
+function logError(error) {
+    console.log('error in ghost-s3', error);
+};
+
+function logInfo(info) {
+    console.log('info in ghost-s3', info);
+};
+
 S3Store.prototype.save = function(image) {
     var self = this;
     if (!options) return Bluebird.reject('ghost-s3 is not configured');
@@ -46,14 +54,14 @@ S3Store.prototype.save = function(image) {
             return s3.putObject(params).promise();
         })
         .tap(function() {
-            self.logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
+            logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
         })
         .then(function(results) {
             var awsPath = getAwsPath(options.bucket);
             return Bluebird.resolve(awsPath + targetFilename);
         })
         .catch(function(err) {
-            self.logError(err);
+            logError(err);
             throw err;
         });
 };
@@ -98,12 +106,6 @@ S3Store.prototype.getTargetName = function(image, targetDir) {
     return targetDir + name + '-' + Date.now() + ext;
 };
 
-S3Store.prototype.logError = function(error) {
-    console.log('error in ghost-s3', error);
-};
 
-S3Store.prototype.logInfo = function(info) {
-    console.log('info in ghost-s3', info);
-};
 
 module.exports = S3Store;
