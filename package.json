@@ -27,6 +27,7 @@
   "homepage": "https://github.com/muzix/ghost-s3",
   "dependencies": {
     "aws-sdk": "^2.1.6",
-    "when": "^3.6.4"
+    "aws-sdk-promise": "^0.0.2",
+    "bluebird": "^2.10.2"
   }
 }
