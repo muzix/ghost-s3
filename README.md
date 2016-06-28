@@ -13,12 +13,34 @@ This module allows you to store media file at Amazon S3 instead of storing at lo
 
 Create index.js file with folder path 'content/storage/ghost-s3/index.js' (manually create folder if not exist)
 
-    'use strict';
-    module.exports = require('ghost-s3-storage');
+```js
+'use strict';
+module.exports = require('ghost-s3-storage');
+```
 
 ## Configuration
 
 Create new Amazon S3 bucket and new IAM User with permissions allowed to put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.
+
+Here's a minimal (i.e. not too permissive) IAM policy you'll need:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": ["s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl"],
+            "Resource": ["arn:aws:s3:::<BUCKET_NAME>/*"]
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["s3:ListBucket"],
+            "Resource": ["arn:aws:s3:::<BUCKET_NAME>"]
+        }
+    ]
+}
+```
 
 Add `storage` block to file `config.js` in each environment as below:
 
