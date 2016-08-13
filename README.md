@@ -1,50 +1,56 @@
-#UPDATE
-Update version 0.2.2 for Ghost 0.6.0
+# Ghost DreamObjects Storage
 
-# Ghost S3 Storage
-
-This module allows you to store media file at Amazon S3 instead of storing at local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.6.0 of Ghost! (Use module version 0.1.7 for Ghost version < 0.6.0)
+This module allows you to store media file at Dreamhost's DreamObects instead of storing on local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.9.0 of Ghost!
 
 ## Installation
 
-    npm install --save ghost-s3-storage
+```bash
+# run from ghost root directory
+npm install --save ghost-dreamobjects-storage
+```
 
 ## Create storage module
 
-Create index.js file with folder path 'content/storage/ghost-s3/index.js' (manually create folder if not exist)
+Create Storage plugin
 
-    'use strict';
-    module.exports = require('ghost-s3-storage');
+```bash
+# run from ghost root directory
+mkdir -p content/storage/ghost-dreamobjects-storage
+echo "'use strict';" > content/storage/ghost-dreamobjects-storage/index.js
+echo "module.exports = require('ghost-dreamobjects-storage');" >> content/storage/ghost-dreamobjects-storage/index.js
+```
+
+The file `content/storage/ghost-dreamobjects-storage/index.js` should look like this:
+
+```javascript
+'use strict';
+module.exports = require('ghost-dreamobjects-storage');
+```
 
 ## Configuration
 
-Create new Amazon S3 bucket and new IAM User with permissions allowed to put and get object from that bucket. Remember saving ACCESS_KEY and ACCESS_SECRET_KEY.
+Create new DreamObjects bucket and (if needed a new User with permissions
+allowed to put and get object from that bucket). Enable public access to this
+folder so that your img URLs are accessible for those browsing your site.
+Note the new the bucket name, access key, and access key secret.
 
 Add `storage` block to file `config.js` in each environment as below:
 
-    storage: {
-        active: 'ghost-s3',
-        'ghost-s3': {
-            accessKeyId: 'Put_your_access_key_here',
-            secretAccessKey: 'Put_your_secret_key_here',
-            bucket: 'Put_your_bucket_name',
-            region: 'Put_your_bucket_region',
-            assetHost: 'Put_your_cdn_url*'
-        }
-    },
-
-**Note 1**
-You can use assetHost config to specify S3 bucket full-url in virtual host style, path style or custom domain (http://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)
-
-- Virtual-host style example: ['https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://blogthucdon24bucket.s3.amazonaws.com/2015/Feb/follow_your_dreams1-1424940431463.jpg)
-
-- Path style example: ['https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg'](https://s3-ap-southeast-1.amazonaws.com/blogthucdon24bucket/2015/Feb/follow_your_dreams1-1424940431463.jpg)
-
-Restart app then test upload new image in blog post. Image will be store at newly S3 bucket.
+```javascript
+storage: {
+  active: 'ghost-dreamobjects-storage',
+  'ghost-dreamobjects-storage': {
+    accessKeyId: '<access key or env var that will be passed to app>',
+    secretAccessKey: '<access secret or env var that will be passed to app>',
+    bucket: '<bucket name>'
+  }
+}
+```
 
 ## Copyright & License
 
-Copyright (c) 2015  Hoang Pham Huu <phamhuuhoang@gmail.com>
+Portions by Hoang Pham Huu Copyright (c) 2015 Hoang Pham Huu <phamhuuhoang@gmail.com>
+
+Portions by Nicholas Marus Copyright (c) 2016 Nicholas Marus <nmarus@gmail.com>
 
 Released under the [MIT license](https://github.com/muzix/ghost-s3/blob/master/LICENSE).
-

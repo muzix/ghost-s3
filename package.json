@@ -1,32 +1,32 @@
 {
-  "name": "ghost-s3-storage",
-  "version": "0.2.2",
-  "description": "Store Ghost's media at AWS S3 storage. Modified version of ghost-s3 (https://www.npmjs.org/package/ghost-s3) and ghost-aws-s3 (https://github.com/kimar/ghost-aws-s3) ",
+  "name": "ghost-dreamobjects-storage",
+  "version": "1.0.0",
+  "description": "Store Ghost's media at Dreamhost's DreamObjects storage. Modified version of ghost-s3-storage (https://github.com/muzix/ghost-s3.git)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/muzix/ghost-s3.git"
+    "url": "https://github.com/nmarus/ghost-dreamobjects-storage.git"
   },
   "keywords": [
     "ghost",
-    "aws",
-    "amazon",
+    "dreamhost",
+    "dreamobjects",
     "s3",
     "storage",
     "plugin",
     "blog"
   ],
-  "author": "Hoang Pham Huu <phamhuuhoang@gmail.com> (http://thucdon24.com/)",
+  "author": "Nicholas Marus <nmarus@gmail.com> (http://nicholasmarus.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/muzix/ghost-s3/issues"
+    "url": "https://github.com/nmarus/ghost-dreamobjects-storage/issues"
   },
-  "homepage": "https://github.com/muzix/ghost-s3",
   "dependencies": {
-    "aws-sdk": "^2.1.6",
-    "when": "^3.6.4"
+    "aws-sdk": "^2.5.0",
+    "moment": "^2.14.1",
+    "when": "^3.7.7"
   }
 }
