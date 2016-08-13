@@ -1,6 +1,6 @@
 {
   "name": "ghost-dreamobjects-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Store Ghost's media at Dreamhost's DreamObjects storage. Modified version of ghost-s3-storage (https://github.com/muzix/ghost-s3.git)",
   "main": "index.js",
   "scripts": {
