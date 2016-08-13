@@ -39,7 +39,7 @@ DOStore.prototype.save = function(image) {
 
   return readFile(image.path)
     .then(buffer => {
-      let s3 = new AWS.S3({
+      var s3 = new AWS.S3({
         accessKeyId: this.config.accessKeyId,
         secretAccessKey: this.config.secretAccessKey,
         endpoint: endpoint
@@ -68,10 +68,10 @@ DOStore.prototype.save = function(image) {
 
 // middleware for serving the files
 DOStore.prototype.serve = function() {
-    // a no-op, these are absolute URLs
-    return function (req, res, next) {
-      next();
-    };
+  // a no-op, these are absolute URLs
+  return function (req, res, next) {
+    next();
+  };
 };
 
 module.exports = DOStore;
