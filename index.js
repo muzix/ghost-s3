@@ -34,7 +34,6 @@ DOStore.prototype.save = function(image) {
   var targetDir = getTargetDir();
   var targetFilename = getTargetName(image, targetDir);
 
-  // endpoint = https://{bucket}.{region}.{domain}
   var region = this.config.region ? this.config.region : 'objects-us-west-1';
   var endpoint = 'https://' + region + '.dream.io';
 

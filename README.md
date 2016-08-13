@@ -11,7 +11,7 @@ npm install --save ghost-dreamobjects-storage
 
 ## Create storage module
 
-Create Storage plugin
+###### Create Storage plugin:
 
 ```bash
 # run from ghost root directory
@@ -20,7 +20,7 @@ echo "'use strict';" > content/storage/ghost-dreamobjects-storage/index.js
 echo "module.exports = require('ghost-dreamobjects-storage');" >> content/storage/ghost-dreamobjects-storage/index.js
 ```
 
-The file `content/storage/ghost-dreamobjects-storage/index.js` should look like this:
+###### The file `content/storage/ghost-dreamobjects-storage/index.js` should look like this:
 
 ```javascript
 'use strict';
@@ -29,12 +29,12 @@ module.exports = require('ghost-dreamobjects-storage');
 
 ## Configuration
 
-Create new DreamObjects bucket and (if needed a new User with permissions
+Create new DreamObjects bucket (and if needed a new user with permissions
 allowed to put and get object from that bucket). Enable public access to this
 folder so that your img URLs are accessible for those browsing your site.
 Note the new the bucket name, access key, and access key secret.
 
-Add `storage` block to file `config.js` in each environment as below:
+Add a `storage` block to file `config.js` in each environment as below:
 
 ```javascript
 storage: {
