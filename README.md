@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/ghost-dreamobjects-storage.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/ghost-dreamobjects-storage/)
+
 # Ghost DreamObjects Storage
 
 This module allows you to store media file at Dreamhost's DreamObects instead of storing on local machine, especially helpful for ghost blog hosted at heroku (no local storage). Work with latest version 0.9.0 of Ghost!
