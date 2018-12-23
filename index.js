@@ -1,91 +1,77 @@
 'use strict';
 
-// # S3 storage module for Ghost blog http://ghost.org/
 var fs = require('fs');
 var path = require('path');
-var nodefn = require('when/node/function');
+var moment = require('moment');
 var when = require('when');
+var nodefn = require('when/node/function');
+var AWS = require('aws-sdk');
 var readFile = nodefn.lift(fs.readFile);
 var unlink = nodefn.lift(fs.unlink);
-var AWS = require('aws-sdk');
-var options = {};
 
-function S3Store(config) {
-  options = config || {};
+function getTargetDir() {
+  return moment().format('YYYY/MM/');
+};
+
+function getTargetName(image, targetDir) {
+  var ext = path.extname(image.name);
+  var name = path.basename(image.name, ext).replace(/\W/g, '_');
+
+  return targetDir + name + '-' + moment().unix() + ext;
+};
+
+function DOStore(config) {
+  this.config = config || {};
 }
 
-S3Store.prototype.save = function(image) {
-    var self = this;
-    if (!options) return when.reject('ghost-s3 is not configured');
+DOStore.prototype.save = function(image) {
 
-    var targetDir = self.getTargetDir();
-    var targetFilename = self.getTargetName(image, targetDir);
-    var awsPath = options.assetHost ? options.assetHost : 'https://' + options.bucket + '.s3.amazonaws.com/';
+  // validate
+  if (this.config === {} || !this.config.accessKeyId || !this.config.secretAccessKey || !this.config.bucket) {
+    return when.reject('ghost-dreamobjects is not configured');
+  }
 
-    return readFile(image.path)
-    .then(function(buffer) {
-        var s3 = new AWS.S3({
-          accessKeyId: options.accessKeyId,
-          secretAccessKey: options.secretAccessKey,
-          bucket: options.bucket,
-          region: options.region
-        });
+  var targetDir = getTargetDir();
+  var targetFilename = getTargetName(image, targetDir);
 
-        return nodefn.call(s3.putObject.bind(s3), {
-            ACL: 'public-read',
-            Bucket: options.bucket,
-            Key: targetFilename,
-            Body: buffer,
-            ContentType: image.type,
-            CacheControl: 'max-age=' + (30 * 24 * 60 * 60) // 30 days
-        });
+  var region = this.config.region ? this.config.region : 'objects-us-west-1';
+  var endpoint = 'https://' + region + '.dream.io';
+
+  return readFile(image.path)
+    .then(buffer => {
+      var s3 = new AWS.S3({
+        accessKeyId: this.config.accessKeyId,
+        secretAccessKey: this.config.secretAccessKey,
+        endpoint: endpoint
+      });
+
+      return nodefn.call(s3.putObject.bind(s3), {
+        ACL: 'public-read',
+        Bucket: this.config.bucket,
+        Key: targetFilename,
+        Body: buffer,
+        ContentType: image.type,
+        CacheControl: 'max-age=' + (30 * 24 * 60 * 60) // 30 days
+      });
     })
-    .then(function(result) {
-        self.logInfo('ghost-s3', 'Temp uploaded file path: ' + image.path);
+    .then(result => {
+      console.log('ghost-dreamobjects', 'Temp uploaded file path: ' + image.path);
     })
-    .then(function() {
-        return when.resolve(awsPath + targetFilename);
+    .then(() => {
+      return when.resolve(endpoint + '/' + this.config.bucket + '/' + targetFilename);
     })
-    .catch(function(err) {
-        // fs.unlink(image.path, function (err) {
-        //     if (err) throw err;
-        //     errors.logInfo('ghost-s3', 'Successfully deleted temp file uploaded');
-        // });
-        self.logError(err);
-        throw err;
+    .catch(err => {
+      console.log(err.stack);
     });
 };
 
+
 // middleware for serving the files
-S3Store.prototype.serve = function() {
-    // a no-op, these are absolute URLs
-    return function (req, res, next) {
-      next();
-    };
+DOStore.prototype.serve = function() {
+  // a no-op, these are absolute URLs
+  return function (req, res, next) {
+    next();
+  };
 };
 
-S3Store.prototype.getTargetDir = function() {
-    var MONTHS = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-    var now = new Date();
-    return now.getFullYear() + '/' + MONTHS[now.getMonth()] + '/';
-};
-
-S3Store.prototype.getTargetName = function(image, targetDir) {
-    var ext = path.extname(image.name),
-        name = path.basename(image.name, ext).replace(/\W/g, '_');
-
-    return targetDir + name + '-' + Date.now() + ext;
-};
-
-S3Store.prototype.logError = function(error) {
-    console.log('error in ghost-s3', error);
-};
-
-S3Store.prototype.logInfo = function(info) {
-    console.log('info in ghost-s3', info);
-};
-
-module.exports = S3Store;
+module.exports = DOStore;
